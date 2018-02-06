@@ -1,0 +1,517 @@
+// 针对 UI 设计稿而做的一些样式重置
+// 也既是 那些 浏览器中有 默认的样式，但需重做
+@import "./variable";
+@import "./mixin";
+
+body, html {
+  line-height: 1;
+  font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background: #222!important;
+  color: #fff
+}
+
+// 多选框样式 兼容性 IE9+
+input[type=checkbox],
+input[type=radio] {
+  display: none;
+}
+
+i.checkbox {
+  font-size: 20px;
+}
+
+// 未选中的checkbox的样式
+i.checkbox:before,
+i.radio:before {
+  content: "\e608";
+  color: #00fffe;
+}
+
+// 选中的checkbox样式
+input[type=checkbox]:checked+i.checkbox:before,
+input[type=radio]:checked+i.radio:before {
+  content: "\e607";
+  color: #00fffe;
+}
+
+// 解决左右出现滚动条时 左右晃动问题
+html {
+  overflow-y: scroll;
+}
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+:root body {
+  position: absolute;
+}
+body {
+  width: 100vw;
+  overflow: hidden;
+}
+
+// placeholder 样式
+input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #b8d7ff!important
+}
+
+input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #b8d7ff!important
+}
+
+input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #b8d7ff!important
+}
+
+input:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #b8d7ff!important
+}
+
+
+
+
+
+
+
+.m-header{
+    position: relative;
+    height: 44px;
+    text-align: center;
+    color: #999;
+    font-size: 0;
+    .icon{
+      display: inline-block;
+      vertical-align: top;
+      margin-top: 6px;
+      width: 30px;
+      height: 32px;
+      margin-right: 9px;
+      background-image: url("../img/logo@2x.png");
+      background-size: 30px 32px;
+    }
+    .text{
+      display: inline-block;
+      vertical-align: top;
+      line-height: 44px;
+      font-size: 16px;
+    }
+    .mine{
+      position: absolute;
+      top: 0;
+      right: 0;
+      .icon-mine{
+        display: block;
+        padding: 12px;
+        font-size: 20px;
+        color:#ffcd32a;
+      }
+
+    }
+}
+
+.tab{
+    display: flex;
+    height: 44px;
+    line-height: 44px;
+    font-size:14px;
+    div{
+      width: 100%;
+      display: flex;
+      a {
+        display: inline-block;
+        flex: 1;
+        text-align: center;
+        &.selected{
+          color: red
+        }
+      }
+    }
+    
+  }
+
+
+
+.recommend{
+  position: fixed;
+  width: 100%;
+  top: 88px;
+  bottom: 0;
+  .recommend-content{
+    height: 100%;
+    overflow: hidden;
+    .slider-wrapper{
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .recommend-list{
+      .list-title{
+        height: 65px;
+        line-height: 65px;
+        text-align: center;
+        font-size:$font-size-medium;
+        color: #ffcd32;
+      }
+
+      .item{
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+        padding: 0 20px 20px 20px;
+        .icon{
+          flex: 0 0 60px;
+          width: 60px;
+          padding-right: 20px;
+        }
+
+        .text{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          flex: 1;
+          line-height: 20px;
+          overflow: hidden;
+          font-size: 12px;
+          .name{
+            margin-bottom: 10px;
+            color: #fff;
+          }
+
+          .desc{
+            color: rgba(255, 255, 255, 0.3)
+          }
+        }
+
+
+      }
+
+    }
+
+    .loading-container{
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+}
+
+
+.slider{
+    min-height: 1px;
+    .slider-group{
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      .slider-item{
+        float: left;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-align: center;
+        a{
+          display: block;
+          width: 100%;
+          overflow: hidden;
+          text-decoration: none;
+        }
+        img{
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+    .dots{
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: 12px;
+      text-align: center;
+      font-size: 0;
+      .dot{
+        display: inline-block;
+        margin: 0 4px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        &.active{
+          width: 20px;
+          border-radius: 5px;
+          background: rgba(255, 255, 255, 0.8);
+        }
+      }
+
+
+    }
+
+
+  }
+
+
+.singer{
+  position: fixed;
+  top:88px;
+  bottom: 0;
+  width: 100%;
+}
+
+
+
+
+ .listView{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background:$color-background;
+    .list-group{
+      padding-bottom: 30px;
+      .list-group-title{
+        height: 30px;
+        line-height: 30px;
+        padding-left: 20px;
+        font-size:$font-size-small;
+        color: $color-text-l;
+        background: $color-highlight-background;
+       }
+       .list-group-item{
+         display: flex;
+         align-items: center;
+         padding: 20px 0 0 30px;
+         .avatar{
+           width: 50px;
+           height: 50px;
+           border-radius: 50%;
+         }
+         .name{
+           margin-left: 20px;
+           color: $color-text-l;
+           font-size: $font-size-medium;
+         }
+        }
+     }
+     .list-shortcut{
+       position: absolute;
+       z-index: 30;
+       right: 0;
+       top: 50%;
+       transform: translateY(-50%);
+       width: 20px;
+       padding: 20px 0;
+       border-radius: 10px;
+       text-align: center;
+       background: $color-background-d;
+       font-family: Helvetica;
+       .item{
+         padding: 3px;
+         line-height: 1;
+         color: $color-text-l;
+         font-size: $font-size-small;
+         &.current{
+           color: $color-theme;
+         }
+       }
+     }
+     .list-fixed{
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       .fixed-title{
+         height: 30px;
+         line-height: 30px;
+         padding-left: 20px;
+         font-size: $font-size-small;
+         color: $color-text-l;
+         background: $color-highlight-background;
+       }
+
+     }
+     .loading-container{
+       position: absolute;
+       width: 100%;
+       top: 50%;
+       transform: translateY(-50%);
+     }
+  }
+
+
+
+.singer-detail{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: $color-background;
+  }
+
+
+ .music-list{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: $color-background;
+    .back{
+      position:absolute;
+      top: 0;
+      left: 6px;
+      z-index: 50;
+      .icon-back{
+        display: block;
+        padding: 10px;
+        font-size: $font-size-large-x;
+        color: $color-theme;
+      }
+
+    }
+    .title{
+      position: absolute;
+      top: 0;
+      left: 10%;
+      z-index: 40;
+      width: 80%;
+      @include no-wrap;
+      text-align: center;
+      line-height: 40px;
+      font-size: $font-size-large;
+      color: $color-text;
+    }
+    .bg-image{
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-top: 70%;
+      transform-origin: top;
+      background-size: cover;
+      .play-wrapper{
+        position: absolute;
+        bottom: 20px;
+        z-index: 50;
+        width: 100%;
+        .play{
+          box-sizing: border-box;
+          width: 135px;
+          padding: 7px 0;
+          margin: 0 auto;
+          text-align: center;
+          border: 1px solid $color-theme;
+          color: $color-theme;
+          border-radius: 100px;
+          font-size: 0;
+          .icon-play{
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 6px;
+            font-size: $font-size-medium-x;
+          }
+          .text{
+            display: inline-block;
+            vertical-align: middle;
+            font-size: $font-size-small;
+          }
+        }
+      }
+
+
+      .filter{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(7, 17, 27, 0.4);
+      }
+
+    }
+    .bg-layer{
+      position: relative;
+      height: 100%;
+      background: $color-background;
+    }
+    .list{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      overflow: hidden;
+      background: $color-background;
+      .song-list-wrapper{
+        padding: 20px 30px;
+      }
+    .loading-container{
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+    }
+  }
+
+
+.song-list{
+    .item{
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      height: 64px;
+      font-size: $font-size-medium;
+      .rank{
+        flex: 0 0 25px;
+        width: 25px;
+        margin-right: 30px;
+        text-align: center;
+        .icon{
+          display: inline-block;
+          width: 25px;
+          height: 24px;
+          background-size: 25px 24px;
+          &.icon0{
+            background-image: url('../img/first.png');
+          }
+          &.icon1{
+              background-image: url('../img/second.png');
+          }
+          &.icon2{
+              background-image: url('../img/third.png');
+          }
+        }
+        .text{
+          color: $color-theme;
+          font-size: $font-size-large;
+        }
+
+      }
+      .content{
+        flex: 1;
+        line-height: 20px;
+        overflow: hidden;
+        .name{
+          @include no-wrap;
+          color: $color-text;
+        }
+
+        .desc{
+          @include no-wrap;
+          margin-top: 4px;
+          color: $color-text-d;
+        }
+
+      }
+
+    }
+
+
+  }
